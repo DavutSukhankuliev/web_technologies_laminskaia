@@ -1,32 +1,42 @@
+<?php
+$note_id = $_GET['note'];
+
+require_once($_SERVER['DOCUMENT_ROOT'].'/tsu/user19/Passion/core/connection_php_mysql.php');
+
+if (!empty($note_id))
+{
+    $q_request = "
+    SELECT *
+    FROM NOTES
+    WHERE ID = $note_id
+    ";
+    
+    $result = mysqli_query($link,$q_request);
+    mysqli_query($link,"SET NAMES 'UTF8'");
+    
+    $edit_note = mysqli_fetch_array ($result);
+}
+
+if (isset($_POST['submit'])) {
+    $q_delete_comments = "DELETE FROM COMMENTS WHERE ART_ID = '$note_id'";
+    mysqli_query($link, $q_delete_comments);
+    $q_delete_notes = "DELETE FROM NOTES WHERE ID = '$note_id'";
+    mysqli_query($link, $q_delete_notes);
+  
+    echo '<script>setTimeout(function(){ window.location.href = "https://tsulab.ru/tsu/user19/Passion/index.php"; }, 3000);</script>';
+    echo "Записб успешно удалена. Вы будете перенаправлены через 3 секунды...";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF8">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">	  	
-		<link rel="stylesheet" href="http://tsulab.ru/tsu/user19/Passion/style.css">
+		<link rel="stylesheet" href="https://tsulab.ru/tsu/user19/Passion/style.css">
 		<title>Passion</title>
 	</head>
-
-<?php
-	$note_id = $_GET['note'];
-
-	require_once($_SERVER['DOCUMENT_ROOT'].'/tsu/user19/Passion/core/connection_php_mysql.php');
-
-	if (!empty($note_id))
-	{
-		$q_request = "
-		SELECT *
-		FROM NOTES
-		WHERE ID = $note_id
-		";
-
-		$result = mysqli_query($link,$q_request);
-		mysqli_query($link,"SET NAMES 'UTF8'");
-
-		$edit_note = mysqli_fetch_array ($result);
-	}
-?>
-
 	<body>
 	<header class="clearfix">
     <div class="container">
@@ -68,28 +78,4 @@
 				<p><input type="submit" name="submit" id="submit" value="Удалить!"></p>
 		</form>
 	</body>
-
-<?php
-	if (!isset($_POST['submit'])) 
-	{
-		return;
-	}
-
-	$q_delete = "
-	DELETE FROM `COMMENTS`
-	WHERE `ART_ID` = '$note_id'
-	";
-
-	$update_result = mysqli_query($link,$q_delete);
-	mysqli_query($link,"SET NAMES 'UTF8'");	
-
-	$q_delete = "
-	DELETE FROM `NOTES`
-	WHERE `ID` = '$note_id'
-	";
-
-	$update_result = mysqli_query($link,$q_delete);
-	mysqli_query($link,"SET NAMES 'UTF8'");	
-?>
-
 </html>

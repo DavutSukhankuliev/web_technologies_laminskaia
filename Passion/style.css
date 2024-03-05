@@ -17,7 +17,7 @@ html{
   font-size: 16px;
 }
 body{
-  background: #ffddbf;
+  background: #f5eaf3;
 }
 .clearfix:before,
 .clearfix:after {
@@ -35,7 +35,7 @@ body{
 header{
   width: 100%;
   height: auto;
-  background-image: -webkit-linear-gradient(#FFDAB9 0%, #ffa04d 100%);
+  background-image: -webkit-linear-gradient(#efd5ef 0%, #c941cb 100%);
 }
 .header-left,
 .header-right{
@@ -108,7 +108,9 @@ nav>a:hover{
 section{
   width: 100%;
   height: auto;
-  background-image: url('https://sangusin.es/img/cms/banner-productos.jpg');
+  background-image: url('https://www.thesymbol.ru/upload/img_cache/b07/b079fa4c9c2bab0789c9315d4d9b8edb_ce_1240x700x0x0_cropped_1200x628.jpg');
+  background-size: cover;
+  background-position: center top;
 }
 .section-left,
 .section-right{
@@ -132,8 +134,8 @@ section{
 .section-title{
   font-size: 2em;
   margin-bottom: .3em;
-  text-shadow: 0 3px 0px #947f6c,
-         0 4px 0px rgba(150,150,150,.5);
+  text-shadow: 0 3px 0px #8e6c9485,
+         0 4px 0px rgba(173 65 193 / 45%);
 }
 .section-tagline{
   font-size: 1.5em;
@@ -144,13 +146,13 @@ section{
   padding: 1em 6em;
   cursor: pointer;
   border-radius: 3px;
-  box-shadow: inset 0 -3px 0 #612d00;
-  background: #EAAF00;
-  background-image: -webkit-linear-gradient(#EAAF00 0%, #D78100 100%);
+  box-shadow: inset 0 -3px 0 #bf0acb;
+  background: #ede8da;
+  background-image: -webkit-linear-gradient(#efd5ef 0%, #c941cb 100%);
   font-size: 1.2em;
 }
 .learn-more:hover{
-  background: #EAAF00;
+  background: #ea78eb;
 }
 .learn-more:active{
   box-shadow: inset 0 2px 0 rgba(0,0,0,.8);
@@ -341,22 +343,19 @@ section{
 }   
 
 /*Таблица*/
-.guruweba_example_form {
-  width: 600px;
-}
-.guruweba_example_caption {
-  font-size: 2em;
-  text-align: center;
-  color: #401e00;
-  background:-webkit-linear-gradient(#ffa04d 0%, #FFDAB9 100%);
-  border-radius:40px;
-}
-.guruweba_example_form .guruweba_example_infofield {
-  margin-top: 10px;
-  font-weight: bold;
-}
-.guruweba_example_form select, .guruweba_example_form input, .guruweba_example_form textarea {
-  width: 100%;
-  margin: 5px 0;
-  padding: 5px 15px;
-}
+.article-table {
+        margin: 0 auto; /* Center align the table */
+        width: 80%; /* Set a width for the table */
+    }
+    
+    .article-cell {
+        width: 20%; /* Set the cell width for 5 columns */
+        text-align: center; /* Center align the content in each cell */
+        padding: 10px;
+        border: 1px solid #ddd; /* Add border for cell separation */
+    }
+
+    .cell-header {
+        font-weight: bold; /* Make the header text bold */
+        margin-bottom: 5px; /* Add some spacing below the header */
+    }

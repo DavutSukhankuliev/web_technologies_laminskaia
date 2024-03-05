@@ -19,9 +19,9 @@
                 </label>
                 <input type="checkbox" name="" id="open">
                 <nav>
-                    <a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
-                    <a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
-                    <a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
+                    <a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
+                    <a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
+                    <a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
                 </nav>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <h5 class="section-tagline">Данный сайт несёт ознакомительный характер</h5>
             </div>
             <div class="section-right">
-                <form method="get" action="http://tsulab.ru/tsu/user19/Passion/index.php">
+                <form method="get" action="https://tsulab.ru/tsu/user19/Passion/index.php">
                     <button class="learn-more" name="button" value="4">Узнать больше!</button>
                 </form>
             </div>
@@ -41,24 +41,28 @@
     </section>
 
 <?php
+
 if (isset($_GET['button'])) {
     if ($_GET['button'] == 1 || empty($_GET['button'])) {
-    require_once('sites/blog.php');
+        require_once('sites/blog.php');
+        require_once('sites/addNote.php');
     }
     elseif ($_GET['button'] == 2) {
         require_once('sites/email.html');
     }
     elseif ($_GET['button'] == 3) {
-    require_once('core/statistics_notes_number.php');
-    require_once('core/statistics_comments_number.php');
-    require_once('core/statistics_notes_last_month.php');
-    require_once('core/statistics_comments_last_month.php');
-    require_once('core/statistics_LAST_note.php');
-    require_once('core/statistics_most_commented_note.php');
+        require_once('core/statistics_notes_number.php');
+        require_once('core/statistics_comments_number.php');
+        require_once('core/statistics_notes_last_month.php');
+        require_once('core/statistics_comments_last_month.php');
+        require_once('core/statistics_LAST_note.php');
+        require_once('core/statistics_most_commented_note.php');
+    }
+    elseif ($_GET['button'] == 4) {
+        require_once('sites/blog.php');
     }
 }
 ?>
-
     </body>
 </html>
 

@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF8">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1">	  	
-		<link rel="stylesheet" href="http://tsulab.ru/tsu/user19/Passion/style.css">
-		<title>Passion</title>
-	</head>
 <?php
 	$note_id = $_GET['note'];
 
@@ -24,8 +16,43 @@
 
 		$edit_note = mysqli_fetch_array ($result);
 	}
+
+	if (isset($_POST['submit'])) 
+	{
+		$title = $_POST['title'];
+		$article = $_POST['article'];
+
+		if (!empty($title) and !empty($article)) 
+		{
+			$q_update = "
+		UPDATE NOTES 
+		SET TITLE = '$title',  ARTICLE = '$article'
+		WHERE  ID = $note_id
+		";
+
+		$update_result = mysqli_query($link,$q_update);
+		mysqli_query($link,"SET NAMES 'UTF8'");
+
+		echo '<script>setTimeout(function(){ window.location.href = "https://tsulab.ru/tsu/user19/Passion/index.php"; }, 3000);</script>';
+        echo "Запись успешно изменена. Вы будете перенаправлены через 3 секунды...";
+        exit();
+		}
+		else
+		{
+			echo '<br>', 'Для публикации продукции необходимо ввести все данные!', '<br>',
+			'Повторите попытку, перейдя в раздел ...';
+		}
+	}	
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">	  	
+		<link rel="stylesheet" href="https://tsulab.ru/tsu/user19/Passion/style.css">
+		<title>Passion</title>
+	</head>
 	<body>
 	<header class="clearfix">
     <div class="container">
@@ -38,9 +65,9 @@
 				</label>
 				<input type="checkbox" name="" id="open">
 				<nav>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
 				</nav>
 			</div>
 		</div>
@@ -52,7 +79,7 @@
 				<h5 class="section-tagline">Данный сайт несёт ознакомительный характер</h5>
 			</div>
 			<div class="section-right">
-				<form method="get" action="http://tsulab.ru/tsu/user19/Passion/index.php">
+				<form method="get" action="https://tsulab.ru/tsu/user19/Passion/index.php">
 					<button class="learn-more" name="button" value="4">Узнать больше!</button>
 				</form>
 			</div>
@@ -70,34 +97,4 @@
 				<p><input type="submit" name="submit" id="submit" value="Изменить!"></p>
 		</form>
 	</body>
-
-<?php
-	if (!isset($_POST['submit'])) 
-	{
-		return;
-	}
-
-	$title = $_POST['title'];
-	$article = $_POST['article'];
-
-	if (!empty($title) and !empty($article)) 
-	{
-		$q_update = "
-	UPDATE NOTES 
-	SET TITLE = '$title',  ARTICLE = '$article'
-	WHERE  ID = $note_id
-	";
-
-	$update_result = mysqli_query($link,$q_update);
-	mysqli_query($link,"SET NAMES 'UTF8'");
-	}
-	else
-	{
-		echo '<br>', 'Для публикации продукции необходимо ввести все данные!', '<br>',
-		'Повторите попытку, перейдя в раздел ...';
-	}
-
-	
-?>
-
 </html>

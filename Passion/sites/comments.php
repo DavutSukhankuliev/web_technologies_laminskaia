@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF8">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1">	  	
-		<link rel="stylesheet" href="http://tsulab.ru/tsu/user19/Passion/style.css">
+		<link rel="stylesheet" href="https://tsulab.ru/tsu/user19/Passion/style.css">
 		<title>Passion</title>
 	</head>
 	<body>
@@ -18,9 +18,9 @@
 				</label>
 				<input type="checkbox" name="" id="open">
 				<nav>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
-					<a href="http://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=1">Главная</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=2">Связаться с нами</a>
+					<a href="https://tsulab.ru/tsu/user19/Passion/index.php?button=3">Статистика</a>
 				</nav>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 				<h5 class="section-tagline">Данный сайт несёт ознакомительный характер</h5>
 			</div>
 			<div class="section-right">
-				<form method="get" action="http://tsulab.ru/tsu/user19/Passion/index.php">
+				<form method="get" action="https://tsulab.ru/tsu/user19/Passion/index.php">
 					<button class="learn-more" name="button" value="4">Узнать больше!</button>
 				</form>
 			</div>
@@ -84,7 +84,7 @@ if (!empty($note_id))
 		{
 			echo "Пишет пользователь под ником ", $comments['AUTHOR'], " - ", $comments['CREATED'], ": <br>", $comments['COMMENT'], "<br><hr><br><hr>";
 ?>
-	<a href="deleteComment.php?note=<?php echo $comments['ID']; ?>">Удалить комментарий <?= "<br><hr><br><hr>"?></a>
+	<a href="deleteComment.php?comment=<?php echo $comments['ID']; ?>&note=<?php echo $note_id; ?>">Удалить комментарий <?= "<br><hr><br><hr>"?></a>
 <?php
 		}
 	}
